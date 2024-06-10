@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container-main-screen">
+      <div id="header">
+        <div class="two-col-group text-center large-title">
+          <img src="icons/48.png" width="20px" />
+          Cookies backup & restore
+        </div>
+      </div>
+      <div class="wrap" id="backup-wrap">
+        <button class="btn-primary" role="button" id="btn-backup">
+          Backup cookies
+        </button>
+      </div>
+      <div class="wrap" id="restore-wrap">
+        <span class="title">Restore Cookies</span>
+        <div id="restore-upload-wrap" class="wrap-tight">
+          <label for="file">Select your latest .ckz file</label>
+          <input
+            class="text-muted"
+            type="file"
+            id="restore"
+            name="file"
+          />
+        </div>
+        <p class="text-center" id="btn-upload-fallback">
+          <a href="#">Unable to upload a .ckz file?</a>
+        </p>
+        <div class="wrap-card hidden text-center" id="dec-passwd">
+          <form id="dec-passwd-form" class="gap-15px">
+            <div class="gap-5px hidden" id="restore-using-text-wrap">
+              <small><b>Paste the contents of your .ckz file</b></small>
+              <textarea
+                id="ckz-textarea"
+                rows="5"
+                placeholder="{iv: 'kjFC7RBV-N4', 'v': 1, 'iter': 10000, ...}"
+                autofocus
+              ></textarea>
+            </div>
+          </form>
+        </div>
+        <div id="progress" class="hidden">
+          <progress id="progressbar" value="0" max="0"></progress>
+        </div>
+      </div>
+
+      <div>
+        <div id="messages"></div>
+        <div id="warnings"></div>
+      </div>
+      <!-- credits -->
+      <div id="credits" class="text-center text-muted">
+        <small>
+          <a target="_blank" href="http://github.com/candh">candh</a>
+          /
+          <a
+            target="_blank"
+            href="https://github.com/candh/cookies-backup-chrome"
+            >github</a
+          >
+        </small>
+      </div>
+    </div>
+  </body>
+
+  <!-- https://bitwiseshiftleft.github.io/sjcl/sjcl.js -->
+  <script src="sjcl.js"></script>
+  <script src="popup.js"></script>
+</html>
